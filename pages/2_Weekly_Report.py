@@ -35,10 +35,10 @@ if all_tms:
     teamz = temp['Team'].unique().tolist()
 
 stands = standings(temp)
-#s_chart = standings_chart(temp)
+s_chart = standings_chart(temp)
 #cht = create_chart(teamz, s_chart)
 
 st.write(stands)
 #st.pyplot(cht)
-st.write(teamz)
+st.write(s_chart)
 st.write(temp)
