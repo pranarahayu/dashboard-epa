@@ -4,10 +4,8 @@ import glob
 from datetime import date
 import numpy as np
 
-def standings(data,ku,grup):
+def standings(data):
   uk = data.copy()
-  uk = uk[uk['KU']==ku]
-  uk = uk[uk['Grup']==grup].reset_index(drop=True)
   uk = uk[['Match', 'Result']]
   uk = uk.groupby(['Match', 'Result'], as_index=False).nunique()
 
@@ -106,10 +104,8 @@ def standings(data,ku,grup):
 
   return df_final_standings
 
-def standings_chart(data,ku,grup):
+def standings_chart(data):
   uk = data.copy()
-  uk = uk[uk['KU']==ku]
-  uk = uk[uk['Grup']==grup].reset_index(drop=True)
   uk = uk[['Match', 'Result','Gameweek']]
   uk = uk.groupby(['Match', 'Result', 'Gameweek'], as_index=False).nunique()
 
