@@ -1,3 +1,58 @@
+import os
+import pandas as pd
+import glob
+from datetime import date
+import numpy as np
+
+from tempfile import NamedTemporaryFile
+from PIL import Image
+import urllib
+
+from mplsoccer import Bumpy, FontManager, add_image, Pitch, VerticalPitch, PyPizza, Radar, grid
+import matplotlib.font_manager as fm
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import matplotlib.ticker as ticker
+from matplotlib import rcParams
+import matplotlib.patheffects as path_effects
+import matplotlib.patches as patches
+from matplotlib.colors import ListedColormap, LinearSegmentedColormap
+from matplotlib.offsetbox import (OffsetImage, AnnotationBbox)
+from matplotlib.patches import FancyBboxPatch
+
+github_url = 'https://github.com/google/fonts/blob/main/ofl/poppins/Poppins-Bold.ttf'
+url = github_url + '?raw=true'
+
+response = urllib.request.urlopen(url)
+f = NamedTemporaryFile(delete=False, suffix='.ttf')
+f.write(response.read())
+f.close()
+
+bold = fm.FontProperties(fname=f.name)
+
+github_url = 'https://github.com/google/fonts/blob/main/ofl/poppins/Poppins-Regular.ttf'
+url = github_url + '?raw=true'
+
+response = urllib.request.urlopen(url)
+f = NamedTemporaryFile(delete=False, suffix='.ttf')
+f.write(response.read())
+f.close()
+
+reg = fm.FontProperties(fname=f.name)
+
+github_url = 'https://github.com/google/fonts/blob/main/ofl/poppins/Poppins-Italic.ttf'
+url = github_url + '?raw=true'
+
+response = urllib.request.urlopen(url)
+f = NamedTemporaryFile(delete=False, suffix='.ttf')
+f.write(response.read())
+f.close()
+
+ita = fm.FontProperties(fname=f.name)
+
+path_eff = [path_effects.Stroke(linewidth=2, foreground='#ffffff'),
+            path_effects.Normal()]
+
 def create_chart(teamz, data):
   datas = data.copy()
   teams = datas['Team'].tolist()
