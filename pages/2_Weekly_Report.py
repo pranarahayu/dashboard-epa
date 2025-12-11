@@ -25,7 +25,7 @@ df = load_data(st.secrets["matchdata"])
 #df2 = load_data(st.secrets["timeline"])
 
 gw = st.selectbox('Select GW', pd.unique(df['Gameweek']), key='2')
-teamz = st.selectbox('Select Teams', pd.unique(df['Team']), key='1')
+teamz = st.multiselect('Select Teams', pd.unique(df['Team']), key='1')
 temp = df[df['Gameweek']<=gw].reset_index(drop=True)
 all_tms = st.checkbox('Select All Teams', key='3')
 
