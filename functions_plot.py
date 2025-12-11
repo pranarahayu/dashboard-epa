@@ -108,7 +108,7 @@ def create_chart(teamz, data):
       lw=2.5,
       fontproperties=bold,
   )
-
+'''
   DC_to_FC = ax.transData.transform
   FC_to_NFC = fig.transFigure.inverted().transform
   DC_to_NFC = lambda x: FC_to_NFC(DC_to_FC(x))
@@ -119,7 +119,7 @@ def create_chart(teamz, data):
       club_icon = Image.open('./logo/'+team+'.png')
       logo_ax.imshow(club_icon)
       logo_ax.axis("off")
-  
+'''
   fig.savefig('chart.jpg', dpi=500, bbox_inches='tight', facecolor=fig.get_facecolor(), edgecolor='none')
   
   return fig
