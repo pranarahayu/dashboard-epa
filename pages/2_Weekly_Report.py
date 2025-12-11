@@ -33,13 +33,12 @@ with col2:
     all_tms = st.checkbox('Select All Teams', key='3')
 if all_tms:
     teamz = temp['Team'].unique().tolist()
-'''
+
 stands = standings(temp)
-s_chart = standings_chart(temp)
-cht = create_chart(teamz, s_chart)
+#s_chart = standings_chart(temp)
+#cht = create_chart(teamz, s_chart)
 
 st.write(stands)
 st.pyplot(cht)
-'''
 st.write(teamz)
 st.write(temp)
