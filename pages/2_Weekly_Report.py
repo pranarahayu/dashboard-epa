@@ -38,9 +38,7 @@ if all_tms:
 stands = standings(temp)
 s_chart = standings_chart(temp)
 cht = create_chart(teamz, s_chart)
-wdl = get_wdl(df, gw)
-temp = stands[['Team']]
-wdl = pd.merge(temp,wdl,on='Team',how='left')
+wdl = get_wdl(temp, stands)
 
 st.subheader('Standings #'+str(gw))
 st.write(stands)
