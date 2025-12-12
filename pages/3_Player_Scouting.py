@@ -52,7 +52,7 @@ st.subheader(ply+' Scouting Report')
 st.caption('vs '+pos+' in BRI Super League | Min. '+str(mins)+' mins played')
 st.data_editor(rdr, column_config={'Percentile':st.column_config.ProgressColumn('Percentile',width='medium',min_value=0,max_value=1)},hide_index=True)
 
-piz = beli_pizza(komp, pos, klub, ply, rank_pct, mins)
+piz = beli_pizza('BRI Super League', pos, klub, ply, abc, mins)
 with open('pizza.jpg', 'rb') as img:
   fn = 'Perf.Radar_'+ply+'.jpg'
   btn = st.download_button(label="Download Report as a Radar!", data=img,
