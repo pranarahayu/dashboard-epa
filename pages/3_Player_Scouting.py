@@ -38,7 +38,7 @@ with col1:
   tengs = tengs.fillna(0)
   abc = get_pct(tengs)
 with col2:
-  klub = st.selectbox('Select Team', pd.unique(rank_tot['Team']), key='1')
+  klub = st.selectbox('Select Team', pd.unique(abc['Team']), key='1')
   temp = abc[abc['Team']==klub].reset_index(drop=True)
 with col3:
   pos = st.selectbox('Select Position', pd.unique(temp['Position']), key='2')
