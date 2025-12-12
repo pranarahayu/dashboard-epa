@@ -53,6 +53,41 @@ ita = fm.FontProperties(fname=f.name)
 path_eff = [path_effects.Stroke(linewidth=2, foreground='#ffffff'),
             path_effects.Normal()]
 
+metrik = ['Name','Team','MoP','Non-penalty goals','Non-penalty xG','NPxG/Shot','Shots','Shot on target ratio','Conversion ratio','Chances created','Assists',
+          'Passes-to-box','Through passes','Passes to final 3rd','Progressive passes','Long passes','Pass accuracy','Successful crosses',
+          'Successful dribbles','Offensive duel won ratio','Tackles','Intercepts','Recoveries','Blocks','Clearances','Aerial duel won ratio',
+          'Defensive duel won ratio','Passes','Passes received','Clean sheets','Shots on target faced','xGOT against','Goals conceded','Goals prevented',
+          'Save ratio','Sweepers','Crosses claimed']
+
+jamet = ['Name','Team','MoP','Non-penalty goals','Shots','Chances created','Assists','Through passes','Progressive passes',
+         'Long passes','Successful crosses','Successful dribbles','Tackles','Intercepts','Recoveries','Blocks','Clearances',
+         'Total Pass','Aerial Duels','Offensive Duel','Offensive Duel - Won','Defensive Duel','Defensive Duel - Won','Goal',
+         'Shot on','Pass','Aerial Won','Penalty','Passes','Clean sheets','Sweepers','Crosses claimed']
+
+posdict = {'gk':{'position':'Goalkeeper',
+                 'metrics':['Name','Passes','Pass accuracy','Long passes','Progressive passes','Passes received','Clean sheets','Shots on target faced',
+                            'xGOT against','Goals conceded','Goals prevented','Save ratio','Sweepers','Crosses claimed','Intercepts']},
+           'cb':{'position':'Center Back',
+                 'metrics':['Name','Non-penalty goals','Shots',
+                            'Passes to final 3rd','Progressive passes','Long passes','Pass accuracy',
+                            'Tackles','Intercepts','Recoveries','Blocks','Clearances','Aerial duel won ratio','Defensive duel won ratio']},
+           'fb':{'position':'Fullback',
+                 'metrics':['Name','Non-penalty goals','Non-penalty xG','Shots','Chances created','Assists',
+                            'Passes-to-box','Through passes','Passes to final 3rd','Progressive passes','Pass accuracy','Successful dribbles','Successful crosses','Offensive duel won ratio',
+                            'Tackles','Intercepts','Recoveries','Blocks','Clearances','Aerial duel won ratio','Defensive duel won ratio']},
+           'cm':{'position':'Midfielder',
+                 'metrics':['Name','Non-penalty goals','Non-penalty xG','NPxG/Shot','Shots','Shot on target ratio','Chances created','Assists',
+                            'Passes-to-box','Through passes','Passes to final 3rd','Progressive passes','Long passes','Pass accuracy','Successful dribbles','Offensive duel won ratio',
+                            'Tackles','Intercepts','Recoveries','Clearances','Defensive duel won ratio']},
+           'cam/w':{'position':'Attacking 10/Winger',
+                    'metrics':['Name','Non-penalty goals','Non-penalty xG','NPxG/Shot','Shots','Shot on target ratio','Conversion ratio','Chances created','Assists',
+                               'Passes-to-box','Through passes','Passes to final 3rd','Progressive passes','Pass accuracy','Successful dribbles','Offensive duel won ratio',
+                               'Tackles','Intercepts','Recoveries','Defensive duel won ratio']},
+           'fw':{'position':'Forward',
+                 'metrics':['Name','Non-penalty goals','Non-penalty xG','NPxG/Shot','Shots','Shot on target ratio','Conversion ratio','Chances created','Assists',
+                            'Passes-to-box','Through passes','Progressive passes','Pass accuracy','Successful dribbles','Offensive duel won ratio',
+                            'Tackles','Intercepts','Recoveries','Aerial duel won ratio','Defensive duel won ratio']}}
+
 def create_chart(teamz, data):
   datas = data.copy()
   teams = datas['Team'].tolist()
