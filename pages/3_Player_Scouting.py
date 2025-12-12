@@ -46,7 +46,7 @@ with col3:
 with col4:
   ply = st.selectbox('Select Player', pd.unique(temp['Name']), key='3')
 
-rdr = get_radar(rank_pct,rank_p90,rank_tot,pos,ply)
+rdr = get_radar(abc,rank_p90,rank_tot,pos,ply)
 rdr['Percentile'] = rdr['Percentile']/100
 st.subheader(ply+' Scouting Report')
 st.caption('vs '+pos+' in '+komp+' | Min. '+str(mins)+' mins played')
